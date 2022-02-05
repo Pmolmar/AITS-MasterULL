@@ -1,5 +1,5 @@
 - name: Instalar Docker
-  hosts: backends, nginx
+  hosts: backend,nginx
   become: true
   vars:
     docker_users:
