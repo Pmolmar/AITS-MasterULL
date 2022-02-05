@@ -3,7 +3,7 @@
 ## Nginx
 - Nginx.yml [x]
 - Instalar docker [x]
-- Instalar nginx docker [ ]
+- Instalar nginx docker [x]
 - Configurar Nginx [ ]
 
 ## Front End
@@ -15,4 +15,4 @@
 - Desplegar en la maquina con docker [ ]
 
 ## BBDD
-- Desplegar en la maquina con docker [ ]
+- Desplegar en la maquina con docker [x]
