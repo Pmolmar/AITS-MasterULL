@@ -1,0 +1,64 @@
+# Playbook para compartir MVs en IaaS ULL
+#
+---
+- name: Share MV
+  hosts: localhost
+  gather_facts: false
+
+  vars_files:
+    - password.yaml    
+
+# Nodes
+# 
+  vars:
+    nodes:
+      - name: AITS-Nginx-MP
+      - name: AITS-Master-4004
+      - name: AITS-FrontEnd-MP
+      - name: AITS-DataBase-MP
+      - name: AITS-Backend-1-MP
+      - name: AITS-Backend-2-MP
+
+    desde: alu0101532028@ULL
+
+    para: alu0101103181@ULL
+
+# Tasks 
+#
+  tasks:
+    - name: Login to IaaS
+      ovirt_auth:
+        url: https://iaas.ull.es/ovirt-engine/api
+        insecure: yes
+        username:  "{{ desde }}"
+        password: "{{ ovirt_password }}"
+        headers:
+          filter: true
+
+    - name: Add UserVmManager role
+      ovirt_permission:
+        auth: "{{ ovirt_auth }}"
+        user_name:  "{{ para }}"
+        authz_name: ULL-authz
+        object_type: vm
+        object_name: "{{ item.name }}"
+        role: UserVmManager
+      with_items: "{{ nodes }}"
+
+    - name: Add UserVmRunTimeManager role
+      ovirt_permission:
+        auth: "{{ ovirt_auth }}"
+        user_name: "{{ para }}"
+        authz_name: ULL-authz
+        object_type: vm
+        object_name: "{{ item.name }}"
+        role: UserVmRunTimeManager
+      with_items: "{{ nodes }}"
+
+
+# Cleanup 
+#
+    - name: Cleanup IaaS auth token
+      ovirt_auth:
+        ovirt_auth: "{{ ovirt_auth }}"
+        state: absent

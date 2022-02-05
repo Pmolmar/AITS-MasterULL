@@ -1,0 +1,12 @@
+- name: Instalar y configurar nginx
+  hosts: nginx
+  become: true
+  collections:
+    - nginxinc.nginx_core
+
+  tasks:
+    - name: Instalar paquete nginx
+      include_role:
+        name: nginx
+
+   
