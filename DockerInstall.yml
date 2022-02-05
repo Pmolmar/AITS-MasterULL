@@ -1,9 +1,9 @@
 - name: Instalar Docker
-  hosts: backends
+  hosts: backends, nginx
   become: true
   vars:
     docker_users:
-      - usuario
+            #- usuario
       - ansible
   roles:
       - geerlingguy.docker

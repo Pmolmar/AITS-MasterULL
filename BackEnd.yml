@@ -32,8 +32,8 @@
 
     prefix: AITS
     nodes:
-      - name: Backend-1-p
-      - name: Backend-2-p
+      - name: Backend-1-deb-p
+      - name: Backend-2-deb-p
 
 # Especifiquen aqui el perfil de la red privada
 # que tienen asignada
@@ -63,7 +63,8 @@
         cpu_cores: 1
         cpu_sockets: 1
         memory: 1GiB
-        template: centos-8-sinred-cloudinit
+        #template: centos-8-sinred-cloudinit
+        template: debian-10-sinred-cloudinit
         nics: "{{ node_nics }}"
         state: present
         wait: yes

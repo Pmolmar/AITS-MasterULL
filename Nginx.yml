@@ -16,23 +16,23 @@
 # {{ ovirt_password }} con la clave para acceder al IaaS ULL
 
   vars_files:
-    - password.yaml
+    - passPablo.yaml
 
 # Clave SSH para el usuario ansible (usen la que generaron en 
 # la MV control
 
   vars:
-    ssh_keys: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCqHFI8UR3Encl2OVplwH/KO+1H2XxMQ+mMbEM1hpm3idsSWuu+qHbOTmr73C4+yOG7Oq4i5MBVowpdmgpmsmadUeuy3iyOubK8sAvlCFrH6OyPTEvg3SJ1KzEWNBqh1wp8wT5zxESz50qJQL4Q7yKG5NdpwSj979lVriYNCMF3aCy+c8dJiBVXg8EGhfMaDcGOcp6/r7jsDu6nEoBNDypLYqgqgqcRuDtNm6+3BHoOKgXbsJWrKl0ZWgbwRqv4vzxYGX1q1a0FX/znSIzi2pp3t6G3PmYPp2jIlOGKt0aBCc2PuZbrirAj9HC+7AxJt3/d/IiQEOIv5jXqNZvCUWvFaUTJq22Tr2ufNCJOUygLiAwWTqy+6AjAVnjULoPKdYskbHbRBGkN9r2RYjJ9TSZZpO7tuASxdknDuJ7Ri46jkCM97HAg/0+4u4BCUKbUr+2LE7Tsb3VMuwGeffRb79vi8OsRsdxrvpjKYxtlzlKBF2qzHhBY4R0EfYA/hZnGZmGnEl/D2lv+XzCKcIAB1BK6rXciqIVKzQ9fWpZrFAFN4fLLuZUvKh5BfNLYwnjzqZIQ8/i7W029IUYt9OoFA5wnL2bYchO8Wofq/HWZ9gj4hvg4IeqBTwY9Wz84cBw9e/VPNabSSotWcwLIR7xJ1GiiRGXb1/cMPSwQn76O+wPBIw== ansible
+    ssh_keys: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDIgHSIGFl526XIjSdUNlUraCtJr7YIICj6kresmgH+15ThptIiXTBjS5d116vA/A6DSce2ZEv34FuYDdr4upTZEFQqELc5X2SDZ/YXN54jyUtEjde9uutMvRFsGpflwJT2OT5jlXUBEtdf2+PeIEr4Wa/abe/dSFsaQ+/daFL1fFvqoZfq4U84SVrMd9eEH+zQ4tR77U2iFWj+lGY55BCgXYPlXLOluUFxznRLfwjA5b+oqsJFUR0YnPdeHNghs4WHYk3rT+btDrsBcM5S63/XpMT6sHX4NgXbw1Fh2fKvvU0ApHDt+bWHq24bd7SYWSc5WnzPCy/Sxpdz4aD2M3MBM6Relz3I4+DLyNPE7Z/ckq69TC8iSXkRFkUpOGr4aFzwBeO1WvjRL924zS+7rPCLwcmcSb9H9XdMLCmyzFScAHTOJM9nE6SnX14LuOC7WDl80s6ybkMTsbEat/NdyRDby+x+uWnPsVugiLPsaBMi8Pvq1gB3Zrp6uVzkc3B1AaE= usuario@ubuntu
 
 # Usuario IaaS (cambiar vblanco por aluxxx...)
 
-    ovirt_login: alu0101532028@ULL
+    ovirt_login: alu0101103181@ULL
 
 # Nodos a crear (en este caso dos ovejas)
 
     prefix: AITS
     nodes:
-      - name: Nginx-MP
+      - name: Nginx-deb-p
 
 
 # Especifiquen aqui el perfil de la red privada
@@ -65,7 +65,8 @@
         cpu_cores: 1
         cpu_sockets: 1
         memory: 1GiB
-        template: centos-8-sinred-cloudinit
+        #template: centos-8-sinred-cloudinit
+        template: debian-10-sinred-cloudinit
         nics: "{{ node_nics }}"
         state: present
         wait: yes
