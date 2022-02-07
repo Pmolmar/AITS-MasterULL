@@ -1,0 +1,10 @@
+# syntax=docker/dockerfile:1
+FROM amd64/node
+
+COPY . /app
+WORKDIR /app
+RUN npm install
+
+EXPOSE 3000
+EXPOSE 27017
+CMD ["npm", "run", "start"]

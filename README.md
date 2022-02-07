@@ -4,14 +4,15 @@
 - [x] Nginx.yml
 - [x] Instalar docker
 - [x] Instalar nginx docker
-- [ ] Configurar Nginx
+- [x] Configurar Nginx
 
 ## Front End
 - [x] Dockerizar app [x]
-- [ ] Desplegar en la maquina con docker 
+- [x] Desplegar en la maquina con docker 
 
 ## Back End
-- [ ] Dockerizar app
+- [x] Dockerizar app
+- [ ] Tunel ssh para conectar con mongo
 - [ ] Desplegar en la maquina con docker
 
 ## BBDD

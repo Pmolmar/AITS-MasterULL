@@ -1,0 +1,9 @@
+# syntax=docker/dockerfile:1
+FROM amd64/node
+
+COPY build /app
+WORKDIR /app
+RUN npm install -g serve
+
+EXPOSE 5005
+CMD ["serve", "-n", "-p", "5005"]
