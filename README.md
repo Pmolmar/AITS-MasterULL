@@ -7,12 +7,12 @@
 - [x] Instalar nginx docker
 - [x] Configurar Nginx
 
-## Front End
+## Front End
 
 - [x] Dockerizar app [x]
 - [x] Desplegar en la maquina con docker 
 
-## Back End
+## Back End
 
 - [x] Dockerizar app
 - [x] Desplegar en la maquina con docker
