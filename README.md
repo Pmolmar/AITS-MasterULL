@@ -9,7 +9,7 @@
 
 ## Front End
 
-- [x] Dockerizar app [x]
+- [x] Dockerizar app
 - [x] Desplegar en la maquina con docker 
 
 ## Back End
